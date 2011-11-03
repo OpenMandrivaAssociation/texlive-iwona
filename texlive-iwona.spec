@@ -1,3 +1,9 @@
+# revision 19611
+# category Package
+# catalog-ctan /fonts/iwona
+# catalog-date 2010-08-03 20:49:06 +0200
+# catalog-license gfsl
+# catalog-version 0.995b
 Name:		texlive-iwona
 Version:	0.995b
 Release:	1
@@ -660,6 +666,7 @@ fonts for LaTeX.
 %doc %{_texmfdistdir}/doc/fonts/iwona/iwona-mathtest.tex
 %doc %{_texmfdistdir}/doc/fonts/iwona/iwona-table.tex
 %doc %{_texmfdistdir}/doc/fonts/iwona/manifest.txt
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -670,3 +677,5 @@ fonts for LaTeX.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
