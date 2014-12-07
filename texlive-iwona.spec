@@ -6,7 +6,7 @@
 # catalog-version 0.995b
 Name:		texlive-iwona
 Version:	0.995b
-Release:	8
+Release:	9
 Summary:	A two-element sans-serif font
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/iwona
