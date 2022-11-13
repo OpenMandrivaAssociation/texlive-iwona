@@ -1,18 +1,12 @@
-# revision 19611
-# category Package
-# catalog-ctan /fonts/iwona
-# catalog-date 2010-08-03 20:49:06 +0200
-# catalog-license gfsl
-# catalog-version 0.995b
 Name:		texlive-iwona
-Version:	0.995b
-Release:	11
+Version:	19611
+Release:	1
 Summary:	A two-element sans-serif font
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/iwona
 License:	GFSL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/iwona.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/iwona.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/iwona.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/iwona.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -35,12 +29,12 @@ Czech fonts), as well as supporting macros and files defining
 fonts for LaTeX.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -660,24 +654,10 @@ fonts for LaTeX.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.995b-2
-+ Revision: 752890
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 0.995b-1
-+ Revision: 718745
-- texlive-iwona
-- texlive-iwona
-- texlive-iwona
-- texlive-iwona
-
