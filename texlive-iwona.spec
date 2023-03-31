@@ -1,6 +1,6 @@
 Name:		texlive-iwona
 Version:	19611
-Release:	1
+Release:	2
 Summary:	A two-element sans-serif font
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/iwona
