@@ -1,9 +1,10 @@
 %global tl_name iwona
 %global tl_revision 77682
+%global tl_version 0.995b
 
 Name:		texlive-%{tl_name}
 Epoch:		1
-Version:	0.995b
+Version:	%{tl_version}
 Release:	%{tl_revision}.1
 Summary:	A two-element sans-serif font
 Group:		Publishing
@@ -13,7 +14,8 @@ Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/iwona.r%{tl_revi
 Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/iwona.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 Iwona is a two-element sans-serif typeface. It was created as an
@@ -29,3 +31,10 @@ following encoding files have been prepared: T1 (ec), T2 (abc), and OT2
 the Czech fonts), as well as supporting macros and files defining fonts
 for LaTeX.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from iwona:
+Map iwona.map
+TL_DROPIN_EOF
